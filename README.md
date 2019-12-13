@@ -1,6 +1,5 @@
 ##Openldap
 
-###Server
 1. **서버 설치**
 ```
 $ sudo apt-get install -y slapd ldap-utils
