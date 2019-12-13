@@ -42,7 +42,7 @@ $ vi /etc/hosts
 에 본인의 ip(127.0.0.1)와 이름(localhost00)을 추가해주면 됨.
 </ol>
 
-1. **클라이언트 설치**
+4. **클라이언트 설치**
 ```
 $ sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd
 ```
@@ -50,12 +50,12 @@ $ sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd
  설치 시에 server의 주소를 입력해야 하는데 위의 server에서 사용한 주소(127.0.0.1)를 입력하면 됩니다.
 그리고 ldapi:// -> ldap:/로 고쳐야 합니다.
 
-  <li>**비밀번호 설정**</li>
+5. **비밀번호 설정**
  ```
 $ sudo vi /etc/nsswitch.conf
 ```
 
- 여기에서 아래 3줄을 수정해주면 됩니다.
+여기에서 아래 3줄을 수정해주면 됩니다.
 passwd : compat ldap
 group  : compat ldap
 shadow : compat ldap
@@ -69,9 +69,9 @@ $ session optional	pam_mkhomedir.so
 ``` 
 를 추가해줘야 합니다.
 
- user 로그인시에 홈 디렉토리를 만들어줍니다.
+user 로그인시에 홈 디렉토리를 만들어줍니다.
 
- 설정이 끝났다면 재실행을 해줍니다.
+설정이 끝났다면 재실행을 해줍니다.
 
  ```
 $ sudo /etc/init.d/nscd restart 
