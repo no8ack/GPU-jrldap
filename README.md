@@ -33,7 +33,7 @@ $ /etc/init.d/apache2 restart
 
  위의 사이트를 통해서 user관리를 할 수 있습니다.
 
- 참고 : <a href="https://dejavuqa.tistory.com/343?category=303713">https://dejavuqa.tistory.com/343?category=303713</a>
+ (참고 : <a href="https://dejavuqa.tistory.com/343?category=303713">https://dejavuqa.tistory.com/343?category=303713</a>)
 
 3. **host ip 설정**
 ```
@@ -108,7 +108,7 @@ $ chmod 777 /home/nfs
 ```
 $ vi /etc/exports 
 ```
-파일에 IP 추가
+exports 파일에 IP 추가 해야됨.
 
 
 
