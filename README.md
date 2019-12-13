@@ -19,8 +19,8 @@ $ sudo apt-get install phpldapadmin
 
 php를 설치하는 이유는 웹 페이지에서 user를 관리하기 위해서 입니다.
   
-2. **phpldapadmin 설정**
-300번째 줄 정도에서 수정하면 됩니다.
+2. **phpldapadmin 설정** (300번째 줄 정도에서 수정하면 됩니다.)
+
 servers->setValue('server','host','127.0.0.1');
 servers->setValue('server','base',array('dc=naver,dc=com'));
 servers->setValue('login','bind_id','cn=admin,dc=naver,dc=com'); 
@@ -35,7 +35,7 @@ $ /etc/init.d/apache2 restart
 
  참고 : <a href="https://dejavuqa.tistory.com/343?category=303713">https://dejavuqa.tistory.com/343?category=303713</a>
 
-   <li>**host ip 설정**</li>
+3. **host ip 설정**
 ```
 $ vi /etc/hosts
 ``` 
