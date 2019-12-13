@@ -1,30 +1,31 @@
-##Openldap
+## Openldap
 
 1. **서버 설치**
 ```
 $ sudo apt-get install -y slapd ldap-utils
 ```
- ```
+```
 $ sudo dpkg-reconfigure slapd
 ```
 
   reconfigure을 통해서 amdin의 cn=과 admin passwd를 설정을 다시 해줘야 합니다.
   
- ```
+```
 $ sudo apt -y install apache2 php php-cgi libapache2-mod-php php-mbstring php-common php-pear
 ```
 ```
 $ sudo apt-get install phpldapadmin
 ```
 
-  php를 설치하는 이유는 웹 페이지에서 user를 관리하기 위해서 입니다.
+php를 설치하는 이유는 웹 페이지에서 user를 관리하기 위해서 입니다.
+  
 2. **phpldapadmin 설정**
 300번째 줄 정도에서 수정하면 됩니다.
 servers->setValue('server','host','127.0.0.1');
 servers->setValue('server','base',array('dc=naver,dc=com'));
 servers->setValue('login','bind_id','cn=admin,dc=naver,dc=com'); 
 
- ```
+```
 $ /etc/init.d/apache2 restart
 ```
 
