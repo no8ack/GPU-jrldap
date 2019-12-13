@@ -100,7 +100,7 @@ $ apt-get update
 ```
 $ apt-get install nfs-common nfs-kernel-server portmap
 ```
-**- 공유 디렉토리 생성**
+1. **공유 디렉토리 생성**
 ```
 $ mkdir /home/nfs
 ```
@@ -110,12 +110,45 @@ $ chmod 777 /home/nfs
 ```
 $ vi /etc/exports 
 ```
-exports 파일에 IP 추가 해야됨.
-
-
-
-
-
-
-
-
+```
+/home    123.456.78.910(rw, sync)
+```
+위의 설정은 NFS 서버의 특정 IP의 호스트 접속을 허용하는 설정입니다.
+```
+rw : 읽기, 쓰기 가능
+ro : 읽기만 가능
+secure : 클라이언트 마운트 요청시 포트를 1024 이하로 합니다.
+noaccess : 액세스 거부
+root_squach : 클라이언트의 root가 서버의 root권한을 획득하는 것을 막습니다.
+no_root_squash : 클라이언트의 root와 서버의 root를 동일하게 합니다.
+sync : 파일 시스템이 변경되면 즉시 동기화합니다.
+all_squach : root를 제외하고 서버와 클라이언트의 사용자를 동일한 권한으로 설정합니다.
+no_all_squach : root를 제외하고 서버와 클라이언트의 사용자들을 하나의 권한을 가지도록 설정합니다. 
+```
+2. **NFS 실행**
+```
+$ /etc/init.d/rpcbind start
+```
+```
+$ /etc/init.d/portmap start
+```
+```
+$ /etc/init.d/rpcidmapd start
+```
+```
+$ /etc/init.d/nfs start
+```
+3. **NFS 클라이언트 설정**
+마운트해서 사용할 디렉토리 생성
+```
+$ /mnt/nfs
+```
+NFS 서버와 마운트
+```
+$ mount -t nfs [호스트명 또는 IP]:[/NFS 서버에서 설정한 공유 디텍터리] [/마운트 포인트]
+```
+부팅시 마운트를 시키고자 할 때
+```
+/etc/fstab
+```
+에 등록.
