@@ -42,7 +42,6 @@ $ vi /etc/hosts
 에 본인의 ip(127.0.0.1)와 이름(localhost00)을 추가해주면 됨.
 </ol>
 
-###Client
 1. **클라이언트 설치**
 ```
 $ sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd
